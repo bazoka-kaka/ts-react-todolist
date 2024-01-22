@@ -38,7 +38,12 @@ const reducer = (state: Todo[], action: ActionType) => {
   }
 };
 
-const useTodos = () => {
+const useTodos = (): {
+  todos: Todo[];
+  handleCreateTodo: (text: string) => void;
+  handleRemoveTodo: (id: number) => void;
+  handleToggleTodo: (id: number) => void;
+} => {
   const [todos, dispatch] = useReducer(reducer, []);
 
   const handleCreateTodo = (text: string) => {
